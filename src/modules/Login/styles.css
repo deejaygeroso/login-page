@@ -4,8 +4,7 @@
   flex-direction: column;
   justify-content: center;
 }
-
-#login-form {
+#login-form-container {
   align-items: center;
   background: #8690da;
   border-radius: var(--border-radius);
@@ -13,13 +12,55 @@
   flex-direction: column;
   justify-content: center;
   margin-top: 150px;
-  width: 300px;
-  height: 250px;
+  width: 420px;
+  height: 350px;
 }
 
-#login-form > div {
-  margin: var(--spacing-size-a);
+#login-form {
+  width: 70%;
 }
 
-#login-form > div > input {
+.input-container > div {
+  align-items: center;
+  background: white;
+  border: 2px solid white;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: var(--spacing-size-b) 0 0 0;
+}
+.input-container > .error-message {
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.input-container > div > svg {
+  font-size: 35px;
+  padding: var(--spacing-size-b);
+}
+
+.input-container > div > input {
+  border: none;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  flex: 1;
+  height: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.submit-button {
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  margin: var(--spacing-size-d) 0 0 0;
+  padding: var(--spacing-size-c);
+  width: 100%;
 }
