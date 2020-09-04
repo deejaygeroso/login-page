@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactElement } from 'react'
+import React, { FunctionComponent, ReactElement, useState } from 'react'
 import './styles.css'
 
 interface IProps {
@@ -15,13 +15,18 @@ interface IProps {
 const TextInput: FunctionComponent<IProps> = (props: IProps): ReactElement => {
   const { errorMessage, icon, id, onChange, onBlur, placeholder, type, value } = props
 
+  const [isValueEmpty, setIsValueEmpty] = useState(false)
+
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     onChange(event.target.value)
   }
 
   const handleOnblur = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    if (onBlur) {
-      onBlur(event.target.value)
+    const inputValue = event.target.value
+    setIsValueEmpty(inputValue === '')
+
+    if (onBlur && inputValue !== '') {
+      onBlur(inputValue)
     }
   }
 
@@ -38,11 +43,13 @@ const TextInput: FunctionComponent<IProps> = (props: IProps): ReactElement => {
           value={value}
         />
       </div>
-      {errorMessage && (
+      {errorMessage || isValueEmpty ? (
         <div className='error-message'>
           <div className='arrow-left' />
-          {errorMessage}
+          {isValueEmpty ? `${placeholder} is required.` : errorMessage}
         </div>
+      ) : (
+        <></>
       )}
     </div>
   )

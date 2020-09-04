@@ -43,6 +43,7 @@ const Login: FunctionComponent<IProps> = inject('store')(
       const onPasswordChange = (value: string): void => {
         setPassword(value)
       }
+
       const onSubmit = (): void => {
         // LoginStore.login()
         // LoginStore.validateEmail()
