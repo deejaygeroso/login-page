@@ -64,6 +64,15 @@ button:focus {
   outline: none;
 }
 
+/* Remove autofill background color in chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px white inset !important;
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
 /* Remove red border from firefox browser */
 input:required {
   box-shadow: none;
