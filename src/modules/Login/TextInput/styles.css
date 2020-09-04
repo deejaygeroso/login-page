@@ -1,0 +1,59 @@
+.input-container > div {
+  align-items: center;
+  background: white;
+  border: 2px solid white;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: var(--spacing-size-b) 0 0 0;
+}
+.input-container > .error-message {
+  --error-message-spacing: 20px;
+  --error-message-height: 19px;
+  --error-message-right-position: -392px;
+  --error-message-width: 220px;
+
+  background: var(--color-error);
+  border: none;
+  color: white;
+  font-size: var(--font-size-sm);
+  height: var(--error-message-height);
+  justify-content: flex-start;
+  margin: calc(var(--error-message-spacing) * -1);
+  padding: var(--error-message-spacing);
+  position: relative;
+  right: var(--error-message-right-position);
+  top: calc(var(--error-message-height) * -1);
+  width: var(--error-message-width);
+}
+
+.input-container > div > svg {
+  font-size: var(--icon-size);
+  padding: var(--spacing-size-b);
+}
+
+.input-container > div > input {
+  border: none;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  flex: 1;
+  height: 100%;
+}
+
+.arrow-left {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-right: 10px solid var(--color-error);
+  border-bottom: 10px solid transparent;
+  position: relative;
+  left: -29px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}

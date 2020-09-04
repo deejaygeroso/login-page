@@ -1,4 +1,5 @@
 import React, { FunctionComponent, ReactElement } from 'react'
+import './styles.css'
 
 interface IProps {
   errorMessage?: string
@@ -17,6 +18,7 @@ const TextInput: FunctionComponent<IProps> = (props: IProps): ReactElement => {
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     onChange(event.target.value)
   }
+
   const handleOnblur = (event: React.ChangeEvent<HTMLInputElement>): void => {
     if (onBlur) {
       onBlur(event.target.value)
@@ -36,7 +38,12 @@ const TextInput: FunctionComponent<IProps> = (props: IProps): ReactElement => {
           value={value}
         />
       </div>
-      <p className='error-message'>{errorMessage}</p>
+      {errorMessage && (
+        <div className='error-message'>
+          <div className='arrow-left' />
+          {errorMessage}
+        </div>
+      )}
     </div>
   )
 }

@@ -51,6 +51,7 @@ const Login: FunctionComponent<IProps> = inject('store')(
       return (
         <div id='login-page'>
           <div id='login-form-container'>
+            <h1 id='title'>A Simple Login Page</h1>
             <div id='login-form'>
               <TextInput
                 icon={<IoMdPerson />}
@@ -87,7 +88,7 @@ const Login: FunctionComponent<IProps> = inject('store')(
                 value={password}
               />
               <button className='submit-button' onClick={onSubmit}>
-                Submit
+                Login
               </button>
             </div>
           </div>

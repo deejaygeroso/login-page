@@ -2,6 +2,12 @@
   --border: 1px solid #ccc;
   --border-radius: 5px;
 
+  --color-error: #cd535b;
+  --color-success: #1ec198;
+
+  --font-family: Montserrat, tahoma, verdana, sans-serif;
+  --icon-size: 35px;
+
   --main-background-color: #6874d0;
 
   --spacing-size-a: 5px;

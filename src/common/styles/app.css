@@ -4,7 +4,7 @@ html,
 #app,
 #app > div {
   background: var(--main-background-color);
-  font-family: monospace;
+  font-family: var(--font-family);
   height: 100%;
   margin: 0;
   padding: 0;
