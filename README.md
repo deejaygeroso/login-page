@@ -1,16 +1,6 @@
-# Dockerized React Hooks Application Boilerplate in Typescript
+# A Simple Login Page
 
-A **React Boilerplate** that implements **hooks** and is written in **Typescript**.
-Application is configured with **docker** and is setup ready for production use.
-
-### Setup includes:
-
-- React Router
-- Webpack
-- Typescript
-- Eslint
-- Prettier
-- Docker
+This application is a very simple login page.
 
 ### Required Setup
 
