@@ -1,6 +1,7 @@
 # A Simple Login Page
 
 This application is a very simple login page.
+Note: This application is not designed to mobile friendly.
 
 ### Required Setup
 
