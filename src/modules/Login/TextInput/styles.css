@@ -57,3 +57,11 @@ textarea:focus,
 button:focus {
   outline: none;
 }
+
+/* Remove red border from firefox browser */
+input:required {
+  box-shadow: none;
+}
+input:invalid {
+  box-shadow: none;
+}
