@@ -1,17 +1,29 @@
 import { action, decorate, observable } from 'mobx'
+import { ILoginData } from '../common/interfaces'
 import axios from 'axios'
 
 class LoginStore {
-  emailErrorMessage = ''
-  isEmailValid = true
+  apiServerURL = 'https://api.raisely.com/v3'
+  campaignUuid = '46aa3270-d2ee-11ea-a9f0-e9a68ccff42a'
   emailErrorCodes = {
     5001: 'Invalid email format.',
     5002: 'Email already exist.',
     5003: 'Unable to validate email to the server.',
   }
+  emailErrorMessage = ''
+  isEmailValid = true
 
-  login = async (): Promise<void> => {
-    console.log('login')
+  login = async (data: ILoginData): Promise<void> => {
+    try {
+      const response = await axios.post(`${this.apiServerURL}/signup`, {
+        campaignUuid: this.campaignUuid,
+        data,
+      })
+      const loginMessage = (response && response.data && response.data.message) || ''
+      alert(loginMessage)
+    } catch (error) {
+      alert('There was an error encountered on the server. Probably your email has already signed-in.')
+    }
   }
 
   validateEmail = async (email: string): Promise<void> => {
@@ -24,8 +36,8 @@ class LoginStore {
   }
 
   getEmailStatus = async (email: string): Promise<string> => {
-    const response = await axios.post(`https://api.raisely.com/v3/check-user`, {
-      campaignUuid: '46aa3270-d2ee-11ea-a9f0-e9a68ccff42a',
+    const response = await axios.post(`${this.apiServerURL}/check-user`, {
+      campaignUuid: this.campaignUuid,
       data: {
         email,
       },

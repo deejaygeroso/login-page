@@ -1,13 +1,14 @@
 import { FiMail, IoMdPerson, RiLockPasswordFill } from 'react-icons/all'
 import React, { FunctionComponent, ReactElement, useState } from 'react'
 import { inject, observer } from 'mobx-react'
+import { ILoginData } from '../../common/interfaces'
 import TextInput from './TextInput'
 import './styles.css'
 
 interface ILoginStore {
   emailErrorMessage: string
   isEmailValid: boolean
-  login: () => void
+  login: (data: ILoginData) => void
   validateEmail: (email: string) => void
 }
 
@@ -51,8 +52,15 @@ const Login: FunctionComponent<IProps> = inject('store')(
       const buttonClassName = isSubmitButtonReady() ? 'submit-button' : 'submit-button button-disabled'
 
       const onSubmit = (): void => {
-        // LoginStore.login()
-        // LoginStore.validateEmail()
+        if (isSubmitButtonReady()) {
+          const data: ILoginData = {
+            email,
+            firstName,
+            lastName,
+            password,
+          }
+          LoginStore.login(data)
+        }
       }
 
       return (
