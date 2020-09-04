@@ -1,0 +1,19 @@
+body,
+html,
+#mount,
+#app,
+#app > div {
+  background: var(--main-background-color);
+  font-family: monospace;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+.container {
+  height: 100%;
+  width: 100%;
+}
