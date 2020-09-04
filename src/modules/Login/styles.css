@@ -40,3 +40,8 @@ h1#title {
   padding: var(--spacing-size-c);
   width: 100%;
 }
+
+.button-disabled {
+  background: var(--color-warning);
+  cursor: not-allowed;
+}

@@ -3,8 +3,9 @@
   --border-radius: 5px;
 
   --color-error: #cd535b;
-  --color-success: #1ec198;
   --color-placeholder: #8690daa3;
+  --color-success: #1ec198;
+  --color-warning: #cea716;
 
   --font-family: Montserrat, tahoma, verdana, sans-serif;
   --icon-size: 35px;

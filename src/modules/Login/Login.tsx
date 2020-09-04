@@ -44,6 +44,12 @@ const Login: FunctionComponent<IProps> = inject('store')(
         setPassword(value)
       }
 
+      const isSubmitButtonReady = (): boolean => {
+        return firstName !== '' && lastName !== '' && email !== '' && password !== '' && LoginStore.isEmailValid
+      }
+
+      const buttonClassName = isSubmitButtonReady() ? 'submit-button' : 'submit-button button-disabled'
+
       const onSubmit = (): void => {
         // LoginStore.login()
         // LoginStore.validateEmail()
@@ -88,7 +94,7 @@ const Login: FunctionComponent<IProps> = inject('store')(
                 type='password'
                 value={password}
               />
-              <button className='submit-button' onClick={onSubmit}>
+              <button className={buttonClassName} onClick={onSubmit} disabled={!isSubmitButtonReady()}>
                 Login
               </button>
             </div>
