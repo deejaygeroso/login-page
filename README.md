@@ -1,6 +1,6 @@
 # A Simple Login Page
 
-This application is a very simple login page.
+This application is a very simple login page.  
 App can be found on [login-app.deejaygeroso.com/](https://login-app.deejaygeroso.com).  
 Note: This application is not designed to mobile friendly.  
 
