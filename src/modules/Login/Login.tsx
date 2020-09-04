@@ -1,45 +1,100 @@
 import { FiMail, IoMdPerson, RiLockPasswordFill } from 'react-icons/all'
-import React, { FunctionComponent, ReactElement } from 'react'
+import React, { FunctionComponent, ReactElement, useState } from 'react'
+import { inject, observer } from 'mobx-react'
+import TextInput from './TextInput'
 import './styles.css'
 
-const Login: FunctionComponent = (): ReactElement => {
-  return (
-    <div id='login-page'>
-      <div id='login-form-container'>
-        <div id='login-form'>
-          <div className='input-container'>
-            <div>
-              <IoMdPerson />
-              <input id='firstName' placeholder='First Name' type='text' />
-            </div>
-            <p className='error-message'></p>
-          </div>
-          <div className='input-container'>
-            <div>
-              <IoMdPerson />
-              <input id='lastName' placeholder='Last Name' type='text' />
-            </div>
-            <p className='error-message'></p>
-          </div>
-          <div className='input-container'>
-            <div>
-              <FiMail />
-              <input id='email' placeholder='Email' type='email' />
-            </div>
-            <p className='error-message'></p>
-          </div>
-          <div className='input-container'>
-            <div>
-              <RiLockPasswordFill />
-              <input id='password' placeholder='Password' type='password' />
-            </div>
-            <p className='error-message'></p>
-          </div>
-          <button className='submit-button'>Submit</button>
-        </div>
-      </div>
-    </div>
-  )
+interface ILoginStore {
+  emailErrorMessage: string
+  isEmailValid: boolean
+  login: () => void
+  validateEmail: (email: string) => void
 }
+
+interface IProps {
+  store?: {
+    LoginStore: ILoginStore
+  }
+}
+
+const Login: FunctionComponent<IProps> = inject('store')(
+  observer(
+    (props: IProps): ReactElement => {
+      const { store } = props
+      const { LoginStore } = store
+
+      const [firstName, setFirstName] = useState('')
+      const [lastName, setLastName] = useState('')
+      const [email, setEmail] = useState('')
+      const [password, setPassword] = useState('')
+
+      const onFirstNameChange = (value: string): void => {
+        setFirstName(value)
+      }
+      const onLastNameChange = (value: string): void => {
+        setLastName(value)
+      }
+      const onEmailChange = (value: string): void => {
+        setEmail(value)
+      }
+      const onEmailBlur = (value: string): void => {
+        LoginStore.validateEmail(value)
+      }
+      const onPasswordChange = (value: string): void => {
+        setPassword(value)
+      }
+      const onSubmit = (): void => {
+        // LoginStore.login()
+        // LoginStore.validateEmail()
+      }
+
+      return (
+        <div id='login-page'>
+          <div id='login-form-container'>
+            <div id='login-form'>
+              <TextInput
+                icon={<IoMdPerson />}
+                id='firstName'
+                onChange={onFirstNameChange}
+                placeholder='First Name'
+                type='text'
+                value={firstName}
+              />
+              <TextInput
+                icon={<IoMdPerson />}
+                id='lastName'
+                onChange={onLastNameChange}
+                placeholder='Last Name'
+                type='text'
+                value={lastName}
+              />
+              <TextInput
+                errorMessage={LoginStore.emailErrorMessage}
+                icon={<FiMail />}
+                id='email'
+                onChange={onEmailChange}
+                onBlur={onEmailBlur}
+                placeholder='Email'
+                type='email'
+                value={email}
+              />
+              <TextInput
+                icon={<RiLockPasswordFill />}
+                id='password'
+                onChange={onPasswordChange}
+                placeholder='Password'
+                type='password'
+                value={password}
+              />
+              <button className='submit-button' onClick={onSubmit}>
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      )
+    },
+  ),
+)
 
 export default Login
