@@ -29,6 +29,7 @@
 }
 
 .input-container > div > svg {
+  color: var(--main-background-color);
   font-size: var(--icon-size);
   padding: var(--spacing-size-b);
 }
@@ -37,8 +38,13 @@
   border: none;
   border-top-right-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
+  color: var(--main-background-color);
   flex: 1;
   height: 100%;
+}
+
+.input-container > div > input::placeholder {
+  color: var(--color-placeholder);
 }
 
 .arrow-left {
