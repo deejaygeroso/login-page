@@ -1,8 +1,8 @@
 # A Simple Login Page
 
-This application is a very simple login page.  
-App can be found on [login-app.deejaygeroso.com/](https://login-app.deejaygeroso.com).  
-Note: As of now, this application is not designed to be mobile friendly.  
+This application is a very simple login page design for desktop application.
+
+![App Screenshot](./public/asset/images/screenshot.png)
 
 ### Required Setup
 
