@@ -2,7 +2,7 @@
 
 This application is a very simple login page design for desktop application.
 
-![App Screenshot](./public/asset/images/screenshot.png)
+![App Screenshot](./public/assets/images/screenshot.png)
 
 ### Required Setup
 
