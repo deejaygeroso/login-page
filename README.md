@@ -1,7 +1,9 @@
 # A Simple Login Page
 
 This application is a very simple login page designed for desktop application.  
-Thid was basically a test project I took for a day for a company I was applying as a front-end role.
+This was basically a test project I took for a day for a company I was applying as a front-end role.
+
+If I were to redo or improve this, I would have applied more effort to improving its mobile responsiveness.  
 
 ![App Screenshot](./public/assets/images/screenshot.png)
 
