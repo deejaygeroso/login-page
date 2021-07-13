@@ -1,6 +1,6 @@
 # A Simple Login Page
 
-This application is a very simple login page design for desktop application.
+This application is a very simple login page designed for desktop application.
 
 ![App Screenshot](./public/assets/images/screenshot.png)
 
